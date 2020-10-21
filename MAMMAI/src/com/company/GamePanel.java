@@ -1,5 +1,6 @@
 package com.company;
 
+import TileMap.TileMap;
 import com.State.GameState;
 import com.State.GameStateManage;
 
@@ -34,6 +35,7 @@ public class GamePanel extends JPanel implements Runnable , KeyListener {
     private double averrageFPS = 30;
     private int targetTime = 1000/ FPS ;
 
+    private TileMap tileMap ;
     private GameStateManage gsm ;
     //initialize
     public GamePanel(){
@@ -66,8 +68,10 @@ public class GamePanel extends JPanel implements Runnable , KeyListener {
         g = (Graphics2D) image.getGraphics() ;
         running = true;
         gsm = new GameStateManage();
-
-        }
+//
+//        tileMap = new TileMap("/MAMMAI/src/Resource/testmap.txt" , 32 );
+//        tileMap.loadTile("/MAMMAI/src/Resource/tileset.gif");
+    }
 
     // Loop Game ;
     @Override
@@ -96,10 +100,17 @@ public class GamePanel extends JPanel implements Runnable , KeyListener {
     }
 
     private void update(){
-       gsm.update();
+
+     //  tileMap.update();
+        gsm.update();
     }
     private void draw(){
-      gsm.draw(g);
+     gsm.draw(g);
+    //  g.setColor(Color.BLACK);
+      // g.fillRect(0,0,WIDTH,HEIGHT);
+      //  tileMap.draw(g);
+
+
     }
     private void drawToScreen(){
         Graphics g2 = getGraphics() ;

@@ -28,8 +28,8 @@ public class MenuState extends GameState {
 
         this.gsm = gsm ;
         try {
-            bg = new Background("/Resource/BGMENU.jpg" , 1);
-          //  bg.setVector(-0.1,0);
+            bg = new Background("/Resource/BGMENU.jpg" ,1);
+          bg.setVector(-0.1,0);
 
             titleColor = new Color(128,0,0);
             titleFont = new Font("Bauhaus 93" ,
@@ -45,7 +45,7 @@ public class MenuState extends GameState {
     }
     @Override
     public void update() {
-       // bg.update();
+        bg.update();
     }
 
     @Override

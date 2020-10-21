@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class Main {
     public static int WIDTH = 800;
-    public static int HEIGHT = 800;
+    public static int HEIGHT = 600;
     public static void main(String[] args) {
 
         // Create window for game , set name ;

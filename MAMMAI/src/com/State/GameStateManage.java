@@ -33,12 +33,9 @@ public class GameStateManage {
        if(i == Bedroom) {
             gameStates[i] = new State.Room.BedRoom(this);
             gameStates[i].update();
+
        }
-//        else if(i == Hall) {
-//            gameStates[i] = new hall(this);
-//            gameStates[i].update();
-//        }
-//        else if(i == LivingRoom) {
+       //        else if(i == LivingRoom) {
 //            gameStates[i] = new LivingRoom(this);
 //            gameStates[i].update();
 //        }

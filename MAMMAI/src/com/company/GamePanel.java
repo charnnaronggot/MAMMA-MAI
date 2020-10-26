@@ -1,6 +1,6 @@
 package com.company;
 
-import TileMap.TileMap;
+import com.TileMap.TileMap;
 import com.State.GameState;
 import com.State.GameStateManage;
 
@@ -46,9 +46,9 @@ public class GamePanel extends JPanel implements Runnable , KeyListener {
 
 //        loop = new Timer(10 , (ActionListener) this);
 //        loop.start();
-//        player = new Player(100,100);
+        player = new Player(tileMap);
 //        enemy = new Enemy(200,200) ;
-//        addKeyListener(new KeyPress(player));
+        addKeyListener(new KeyPress(player));
 //        setFocusable(true);
 //        requestFocus();
     }
@@ -68,9 +68,7 @@ public class GamePanel extends JPanel implements Runnable , KeyListener {
         g = (Graphics2D) image.getGraphics() ;
         running = true;
         gsm = new GameStateManage();
-//
-//        tileMap = new TileMap("/MAMMAI/src/Resource/testmap.txt" , 32 );
-//        tileMap.loadTile("/MAMMAI/src/Resource/tileset.gif");
+
     }
 
     // Loop Game ;
@@ -81,8 +79,10 @@ public class GamePanel extends JPanel implements Runnable , KeyListener {
 
             start = System.nanoTime();
             update();
+         //   render();
             draw();
             drawToScreen();
+
             elapsed = (System.nanoTime() - start) / 1000000 ;
 
             wait = targetTime - elapsed/1000000 ;
@@ -101,14 +101,25 @@ public class GamePanel extends JPanel implements Runnable , KeyListener {
 
     private void update(){
 
-     //  tileMap.update();
+        //  tileMap.update();
         gsm.update();
+        player.update();
+    }
+
+    private void render (){
+
+        tileMap.draw(g);
+       // player.draw(g);
     }
     private void draw(){
-     gsm.draw(g);
-    //  g.setColor(Color.BLACK);
-      // g.fillRect(0,0,WIDTH,HEIGHT);
-      //  tileMap.draw(g);
+        gsm.draw(g);
+        if(GameStateManage.getCurrentState() == 1 ) {
+            player.draw(g);
+        }
+        //  g.setColor(Color.BLACK);
+        // g.fillRect(0,0,WIDTH,HEIGHT);
+        //  tileMap.draw(g);
+
 
 
     }
@@ -117,18 +128,6 @@ public class GamePanel extends JPanel implements Runnable , KeyListener {
         g2.drawImage(image,0,0,null);
         g2.dispose();
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

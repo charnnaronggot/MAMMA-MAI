@@ -1,11 +1,12 @@
 package com.State;
 
-import State.MenuState;
+import com.TileMap.BedRoom;
+import com.company.Player;
 
 public class GameStateManage {
 
+    private static int currentState;
     private GameState[] gameStates;
-    private int currentState;
     private int previousState;
 
 
@@ -16,6 +17,7 @@ public class GameStateManage {
     public static final int LivingRoom = 3;
     public static final int Yard = 4;
 
+    public Player player ;
     public GameStateManage() {
         gameStates = new GameState[NUM_STATES];
 
@@ -31,7 +33,7 @@ public class GameStateManage {
             gameStates[i].update();
         }
        if(i == Bedroom) {
-            gameStates[i] = new State.Room.BedRoom(this);
+            gameStates[i] = new BedRoom(this);
             gameStates[i].update();
 
        }
@@ -54,6 +56,7 @@ public class GameStateManage {
         if(gameStates[currentState] != null) {
             gameStates[currentState].update();
         }
+
     }
 
     public void draw(java.awt.Graphics2D g)
@@ -61,6 +64,7 @@ public class GameStateManage {
         if(gameStates[currentState] != null) {
             gameStates[currentState].draw(g);
         }
+
     }
 
     public void keyPressed(int key)
@@ -71,5 +75,9 @@ public class GameStateManage {
     public void keyReleased(int key)
     {
         gameStates[currentState].keyReleased(key);
+    }
+
+    public static int getCurrentState(){
+        return currentState ;
     }
 }

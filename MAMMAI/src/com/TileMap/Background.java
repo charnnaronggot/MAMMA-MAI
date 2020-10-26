@@ -1,4 +1,4 @@
-package TileMap;
+package com.TileMap;
 
 import com.company.GamePanel;
 
@@ -18,10 +18,11 @@ public class Background {
 
     public Background(String s , double ms){
         try {
-            image = ImageIO.read(getClass().getResourceAsStream(s)
+            image = ImageIO.read(this.getClass().getResourceAsStream(s)
             );
         }catch (Exception e ){
             e.printStackTrace();
+
         }
     }
     public  void setPosition (double x , double y ){

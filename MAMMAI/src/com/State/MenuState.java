@@ -1,13 +1,13 @@
-package State;
+package com.State;
 
+
+import com.State.GameState;
+import com.State.GameStateManage;
+import com.TileMap.Background;
+import com.company.Main;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-
-import TileMap.Background;
-import com.State.GameState;
-import com.State.GameStateManage;
-import com.company.Main;
 
 public class MenuState extends GameState {
 
@@ -28,7 +28,7 @@ public class MenuState extends GameState {
 
         this.gsm = gsm ;
         try {
-            bg = new Background("/Resource/BGMENU.jpg" ,1);
+            bg = new Background("/Resource/BGMENU.JPG" ,1);
           bg.setVector(-0.1,0);
 
             titleColor = new Color(128,0,0);
